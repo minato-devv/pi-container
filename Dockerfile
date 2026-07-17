@@ -6,5 +6,7 @@ RUN apt-get update \
 RUN ln -s $(which fdfind) /usr/bin/fd
 RUN npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
-WORKDIR /workspace
+USER node
+RUN mkdir -p /home/node/workspace
+WORKDIR /home/node/workspace
 ENTRYPOINT ["pi"]
